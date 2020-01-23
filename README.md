@@ -14,6 +14,6 @@
 	* cd server
 8. Inside the server folder run following commands:
 	* npm install
-	* node server.js
 	* npx sequelize db:create - (for create library database)
 	* npx sequelize db:migrate - (for create table in library database)
+	* node server.js
