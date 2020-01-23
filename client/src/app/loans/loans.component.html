@@ -1,0 +1,53 @@
+<div class="container-md">
+  <h1>List of Loans</h1>
+    <div class="row">
+    
+      <div class="search conainer-md">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faSearch"></fa-icon>&nbsp;&nbsp;</span>
+          </div>
+          <input type="text" name="search" [(ngModel)]="searchText" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1"><pre></pre>
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Member First Name</th>
+            <th>Member Last Name</th>
+            <th>Book</th>
+            <th>Loans date</th>
+            <th>Return status</th>
+            <th>Damage</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-transform" *ngFor="let loan of Loans | filter: searchText | paginate: {itemsPerPage: 5, currentPage: p}">
+            <td>{{loan.member.first_name}}</td>
+            <td>{{loan.member.last_name}}</td>
+            <td>{{loan.book.book_name}}</td>
+            <td>{{loan.loans_date  | date:'dd.MM.yyyy'}}</td>
+            <td>{{loan.return_status}}</td>
+            <td (click)="Damage(loan)"><fa-icon [icon]="faUserEdit"></fa-icon></td>
+
+            <div class="end">
+              <button class="btn" (click)="DeleteLoans(loan)"><fa-icon [icon]="faTrash"></fa-icon></button>&nbsp;&nbsp;
+              <button class="btn" (click)="EditLoans(loan)"><fa-icon [icon]="faUserEdit"></fa-icon></button>
+              </div>
+  
+          </tr>
+  
+        </tbody>
+      </table>
+      </div>
+
+      
+      <div class="pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+
+    <button class="btn btn-primary" (click)="AddLoans()">Add Loans</button>
+</div>
+  <router-outlet></router-outlet>

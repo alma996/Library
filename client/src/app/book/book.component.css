@@ -1,0 +1,26 @@
+
+
+.search{
+ text-align: end;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+  }
+.input-group{
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    padding: 20px;
+}
+
+.text-transform{
+    text-transform: capitalize;
+}
+
+.end{
+    text-align: end;
+}

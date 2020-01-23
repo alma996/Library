@@ -1,0 +1,48 @@
+<div class="container-md">
+    <h1>List of Membership fees</h1>
+    <div class="row">
+     
+        <div class="search conainer-md">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faSearch"></fa-icon>&nbsp;&nbsp;</span>
+              </div>
+              <input type="text" name="search" [(ngModel)]="searchText" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1"><pre></pre>
+            </div>
+          </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Member First Name</th>
+            <th>Member Last Name</th>
+            <th>Date of payment</th>
+            <th>Year</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-transform" *ngFor="let membership of Memberships | filter: searchText | paginate: {itemsPerPage: 5, currentPage: p}">
+            <td>{{membership.member.first_name}}</td>
+            <td>{{membership.member.last_name}}</td>
+            <td>{{membership.date_of_payment}}</td>
+            <td>{{membership.year}}</td>
+            <td>{{membership.amount}}</td>
+  <td>
+            <button class="btn" (click)="DeleteMembership(membership)" title="Delete"><fa-icon [icon]="faTrash"></fa-icon></button>&nbsp;&nbsp;
+            <button class="btn" (click)="EditMembership(membership)" title="Edit"><fa-icon [icon]="faUserEdit"></fa-icon></button>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+
+    
+    </div>
+
+    <div class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+</div>
+  <router-outlet></router-outlet>
