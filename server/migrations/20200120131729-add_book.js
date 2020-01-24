@@ -6,7 +6,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const id = ID()
     const bookData = [{
-      "book_id": '',
+      "book_id": "1",
       "author_id": "1",
       "genre_id": "1",
       "publisher_id": "1",

@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const genreData = [{
-      "genre_id": "",
+      "genre_id": "1",
       "genre_name": "Drama",
     }]
 

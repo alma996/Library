@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const membershipData = [{
-      "membership_id": "",
+      "membership_id": "1",
       "member_id": "1",
       "date_of_payment": "2020-01-20",
       "year": "2020",

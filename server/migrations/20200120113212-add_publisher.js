@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const publisherData = [{
-      "publisher_id": "",
+      "publisher_id": "1",
       "publisher_name": "Buybook",
     }]
 

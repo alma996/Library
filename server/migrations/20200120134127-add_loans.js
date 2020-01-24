@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const loansData = [{
-      "loans_id": "",
+      "loans_id": "1",
       "member_id": "1",
       "book_id": "1",
       "loans_date": "2020-01-20",

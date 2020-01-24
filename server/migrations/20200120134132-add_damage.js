@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const damageData = [{
-      "damage_id": "",
+      "damage_id": "1",
       "loans_id": "1",
       "damage_description": "Damaged first page of the book",
     }]
