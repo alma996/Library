@@ -21,5 +21,5 @@ Libray Project
 	* node server.js - (run the server app on port 3000)
 9. Open http://localhost:4200 to view it in the browser
 10. Login example:
-	* Email: alma96@gmail.com,
+	* Email: alma96@gmail.com
 	* Password: alma
