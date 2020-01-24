@@ -10,44 +10,43 @@ module.exports = {
         autoIncrement: true
       },
       author_id: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'Author',
-            key: 'author_id',
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-          allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Author',
+          key: 'author_id',
         },
-        genre_id: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'Genre',
-            key: 'genre_id',
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-          allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
+      },
+      genre_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Genre',
+          key: 'genre_id',
         },
-        publisher_id: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'Publisher',
-            key: 'publisher_id',
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-          allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
+      },
+      publisher_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Publisher',
+          key: 'publisher_id',
         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
+      },
       book_name: {
         type: Sequelize.STRING
       }
-
     },
-    {
-      charset: 'utf8',
+      {
+        charset: 'utf8',
         collate: 'utf8_unicode_ci'
-    })
+      })
   },
 
   down: (queryInterface, Sequelize) => {

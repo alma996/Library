@@ -3,7 +3,7 @@ const db = require('../database/db.js')
 const bcrypt = require("bcryptjs")
 
 module.exports = db.sequelize.define(
-  'user',
+  'Users',
   {
     user_id: {
       type: Sequelize.INTEGER,
@@ -29,16 +29,16 @@ module.exports = db.sequelize.define(
   },
   {
 
-    hooks : {
-      
-        beforeCreate : async (user , options) => {
-          {
-            let t=await bcrypt.hash(user.password, 10)
-            user.password= t
-          }
+    hooks: {
 
-          }
-        },
+      beforeCreate: async (user, options) => {
+        {
+          let t = await bcrypt.hash(user.password, 10)
+          user.password = t
+        }
+
+      }
+    },
 
     timestamps: false,
   })

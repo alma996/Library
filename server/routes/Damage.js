@@ -15,25 +15,25 @@ process.env.SECRET_KEY = 'secret'
 
 
 damage.get('/:id', (req, res) => {
-    Loans.hasMany(Damage, {foreignKey: 'loans_id'})
-    Damage.belongsTo(Loans, {foreignKey: 'loans_id'})
+  Loans.hasMany(Damage, { foreignKey: 'loans_id' })
+  Damage.belongsTo(Loans, { foreignKey: 'loans_id' })
 
-    Member.hasMany(Loans, {foreignKey: 'member_id'})
-    Loans.belongsTo(Member, {foreignKey: 'member_id'})
+  Member.hasMany(Loans, { foreignKey: 'member_id' })
+  Loans.belongsTo(Member, { foreignKey: 'member_id' })
 
-    Book.hasMany(Loans, {foreignKey: 'book_id'})
-    Loans.belongsTo(Book, {foreignKey: 'book_id'})
+  Book.hasMany(Loans, { foreignKey: 'book_id' })
+  Loans.belongsTo(Book, { foreignKey: 'book_id' })
 
- Damage.findAll({
-  where: {loans_id: req.params.id},
-     include: [{
-         model: Loans,
-         required: true,
-         include: [{model: Member, required: true}, {model: Book, required: true}],
+  Damage.findAll({
+    where: { loans_id: req.params.id },
+    include: [{
+      model: Loans,
+      required: true,
+      include: [{ model: Member, required: true }, { model: Book, required: true }],
 
-     }   
-     ]
-    })
+    }
+    ]
+  })
     .then(damage => {
       if (damage) {
         res.json(damage)
@@ -47,158 +47,160 @@ damage.get('/:id', (req, res) => {
 })
 
 damage.get('/:damage_id/:loans_id', (req, res) => {
-  Loans.hasMany(Damage, {foreignKey: 'loans_id'})
-  Damage.belongsTo(Loans, {foreignKey: 'loans_id'})
+  Loans.hasMany(Damage, { foreignKey: 'loans_id' })
+  Damage.belongsTo(Loans, { foreignKey: 'loans_id' })
 
-Damage.findOne({
-  attributes: ['damage_id', 'damage_description'],
-where: {damage_id: req.params.damage_id},
-   include: [{
-       model: Loans,
-       required: true,
-       where:{loans_id: req.params.loans_id},
+  Damage.findOne({
+    attributes: ['damage_id', 'damage_description'],
+    where: { damage_id: req.params.damage_id },
+    include: [{
+      model: Loans,
+      required: true,
+      where: { loans_id: req.params.loans_id },
 
-   }   
-   ]
-  })
-  .then(damage => {
-    if (damage) {
-      res.json(damage)
-    } else {
-      res.send('Damage does not exist')
     }
+    ]
   })
-  .catch(err => {
-    res.send('error: ' + err)
-  })
+    .then(damage => {
+      if (damage) {
+        res.json(damage)
+      } else {
+        res.send('Damage does not exist')
+      }
+    })
+    .catch(err => {
+      res.send('error: ' + err)
+    })
 })
 
 damage.get('', (req, res) => {
-  Loans.hasMany(Damage, {foreignKey: 'loans_id'})
-  Damage.belongsTo(Loans, {foreignKey: 'loans_id'})
+  Loans.hasMany(Damage, { foreignKey: 'loans_id' })
+  Damage.belongsTo(Loans, { foreignKey: 'loans_id' })
 
-  Member.hasMany(Loans, {foreignKey: 'member_id'})
-  Loans.belongsTo(Member, {foreignKey: 'member_id'})
+  Member.hasMany(Loans, { foreignKey: 'member_id' })
+  Loans.belongsTo(Member, { foreignKey: 'member_id' })
 
-  Book.hasMany(Loans, {foreignKey: 'book_id'})
-  Loans.belongsTo(Book, {foreignKey: 'book_id'})
+  Book.hasMany(Loans, { foreignKey: 'book_id' })
+  Loans.belongsTo(Book, { foreignKey: 'book_id' })
 
-Damage.findAll({
-   include: [{
-       model: Loans,
-       required: true,
-       include: [{model: Member, required: true}, {model: Book, required: true}],
+  Damage.findAll({
+    include: [{
+      model: Loans,
+      required: true,
+      include: [{ model: Member, required: true }, { model: Book, required: true }],
 
-   }   
-   ]
-  })
-  .then(damage => {
-    if (damage) {
-      res.json(damage)
-    } else {
-      res.send('Damage does not exist')
     }
+    ]
   })
-  .catch(err => {
-    res.send('error: ' + err)
-  })
+    .then(damage => {
+      if (damage) {
+        res.json(damage)
+      } else {
+        res.send('Damage does not exist')
+      }
+    })
+    .catch(err => {
+      res.send('error: ' + err)
+    })
 })
 
 
-damage.delete('/:id', (req, res)=>{
+damage.delete('/:id', (req, res) => {
   const damageID = req.params.id
-  Loans.hasMany(Damage, {foreignKey: 'loans_id'})
-  Damage.belongsTo(Loans, {foreignKey: 'loans_id'})
+  Loans.hasMany(Damage, { foreignKey: 'loans_id' })
+  Damage.belongsTo(Loans, { foreignKey: 'loans_id' })
 
-Damage.destroy({
+  Damage.destroy({
     where: {
       damage_id: damageID
-      
+
     },
     include: [{
       model: Loans
-  },
- ]
+    },
+    ]
   })
-  .then(function (deletedRecord) {
-    if(deletedRecord === 1){
-        res.status(200).json({message:"Deleted successfully"});          
-    }
-    else
-    {
-        res.status(404).json({message:"record not found"})
-    }
-})
-.catch(function (error){
-    res.status(500).json(error);
-})
-})
- 
-  damage.post('/:id', (req, res) => {
-    const loansID = req.params.id
-    Loans.hasMany(Damage, {foreignKey: 'loans_id'})
-    Damage.belongsTo(Loans, {foreignKey: 'loans_id'})
-    const damageData = {
-        loans_id: loansID,
-      damage_description: req.body.damage_description,
-    }
-  
-    Damage.findOne({
-      where: {
-        loans_id:loansID,
-        damage_description: req.body.damage_description,
-      },
-      include: [{
-        model: Loans   
-    }]
+    .then(function (deletedRecord) {
+      if (deletedRecord === 1) {
+        res.status(200).json({ message: "Deleted successfully" });
+      }
+      else {
+        res.status(404).json({ message: "record not found" })
+      }
     })
-      //TODO bcrypt
-      .then(damage => {
-        if (!damage) {
-          Damage.create(damageData)
-            .then(damage => {
-              let token = jwt.sign(damage.dataValues, process.env.SECRET_KEY, {
-                expiresIn: 1440
-              })
-              res.json({ token: token })
-            })
-            .catch(err => {
-              res.send('error: ' + err)
-            })
-        } else {
-          res.json({ error: 'Damage already exists' })
-        }
-      })
-      .catch(err => {
-        res.send('error: ' + err)
-      })
+    .catch(function (error) {
+      res.status(500).json(error);
+    })
+})
+
+damage.post('/:id', (req, res) => {
+  const loansID = req.params.id
+  Loans.hasMany(Damage, { foreignKey: 'loans_id' })
+  Damage.belongsTo(Loans, { foreignKey: 'loans_id' })
+  const damageData = {
+    loans_id: loansID,
+    damage_description: req.body.damage_description,
+  }
+
+  Damage.findOne({
+    where: {
+      loans_id: loansID,
+      damage_description: req.body.damage_description,
+    },
+    include: [{
+      model: Loans
+    }]
   })
+    //TODO bcrypt
+    .then(damage => {
+      if (!damage) {
+        Damage.create(damageData)
+          .then(damage => {
+            let token = jwt.sign(damage.dataValues, process.env.SECRET_KEY, {
+              expiresIn: 1440
+            })
+            res.json({ token: token })
+          })
+          .catch(err => {
+            res.send('error: ' + err)
+          })
+      } else {
+        res.json({ error: 'Damage already exists' })
+      }
+    })
+    .catch(err => {
+      res.send('error: ' + err)
+    })
+})
 
-  
-
-  damage.put('/:id', (req, res, next) => {
-    Loans.hasMany(Damage, {foreignKey: 'loans_id'})
-    Damage.belongsTo(Loans, {foreignKey: 'loans_id'})
 
 
-    Damage.update(
-      {loans_id: req.body.loans_id,
-      damage_description: req.body.damage_description},
-      {returning: true, where: {damage_id: req.params.id},
-    
+damage.put('/:id', (req, res, next) => {
+  Loans.hasMany(Damage, { foreignKey: 'loans_id' })
+  Damage.belongsTo(Loans, { foreignKey: 'loans_id' })
+
+
+  Damage.update(
+    {
+      loans_id: req.body.loans_id,
+      damage_description: req.body.damage_description
+    },
+    {
+      returning: true, where: { damage_id: req.params.id },
+
       include: [{
         model: Loans
-    },]
+      },]
 
     }
-    )
+  )
     .then(Damage.findByPk(req.params.id))
-    .then(function(updatedDamage) {
-    res.json(updatedDamage)
+    .then(function (updatedDamage) {
+      res.json(updatedDamage)
     })
     .catch(next)
-   })
-  
+})
 
 
-module.exports =  damage
+
+module.exports = damage

@@ -28,7 +28,7 @@ users.post('/register', async (req, res) => {
     .then(user => {
       if (!user) {
         User.create(userData)
-          .then(user => { 
+          .then(user => {
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
               expiresIn: 1440
             })
@@ -47,8 +47,8 @@ users.post('/register', async (req, res) => {
 })
 
 //LOGIN
-users.post('/login', async(req, res) => {
-  
+users.post('/login', async (req, res) => {
+
   await User.findOne({
     where: {
       email: req.body.email
@@ -57,12 +57,12 @@ users.post('/login', async(req, res) => {
     .then(async user => {
       if (user) {
 
-      
-        let validPAssword= await bcrypt.compare(req.body.password,user.password)
-        
-      if(!validPAssword){
-        return res.send('Password not same')
-      }
+
+        let validPAssword = await bcrypt.compare(req.body.password, user.password)
+
+        if (!validPAssword) {
+          return res.send('Password not same')
+        }
 
         let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
           expiresIn: 1440
@@ -73,7 +73,7 @@ users.post('/login', async(req, res) => {
       }
     })
     .catch(err => {
-      res.send('error: ' + err,)
+      res.send('error: ' + err)
     })
 })
 

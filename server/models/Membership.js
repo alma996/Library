@@ -3,7 +3,7 @@ const db = require('../database/db.js')
 const bcrypt = require("bcryptjs")
 
 module.exports = db.sequelize.define(
-  'membership',
+  'Membership',
   {
     membership_id: {
       type: Sequelize.INTEGER,
@@ -11,8 +11,8 @@ module.exports = db.sequelize.define(
       autoIncrement: true
     },
     member_id: {
-        type: Sequelize.INTEGER,
-      },
+      type: Sequelize.INTEGER,
+    },
     date_of_payment: {
       type: Sequelize.DATE
     },
@@ -20,9 +20,9 @@ module.exports = db.sequelize.define(
       type: Sequelize.STRING
     },
     amount: {
-        type: Sequelize.INTEGER
-      },
+      type: Sequelize.INTEGER
     },
+  },
   {
 
     timestamps: false,

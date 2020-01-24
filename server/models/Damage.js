@@ -3,7 +3,7 @@ const db = require('../database/db.js')
 const bcrypt = require("bcryptjs")
 
 module.exports = db.sequelize.define(
-  'damage',
+  'Damage',
   {
     damage_id: {
       type: Sequelize.INTEGER,
@@ -11,12 +11,12 @@ module.exports = db.sequelize.define(
       autoIncrement: true
     },
     loans_id: {
-        type: Sequelize.INTEGER,
-      },
-    damage_description: {
-        type: Sequelize.STRING
-      }
+      type: Sequelize.INTEGER,
     },
+    damage_description: {
+      type: Sequelize.STRING
+    }
+  },
   {
 
     timestamps: false,

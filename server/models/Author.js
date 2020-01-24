@@ -3,7 +3,7 @@ const db = require('../database/db.js')
 const bcrypt = require("bcryptjs")
 
 module.exports = db.sequelize.define(
-  'author',
+  'Author',
   {
     author_id: {
       type: Sequelize.INTEGER,

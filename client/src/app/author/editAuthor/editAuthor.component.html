@@ -1,29 +1,29 @@
 <div class="container-fluid">
-    <h2>Edit Author</h2>
-    <form [formGroup]="registrationForm" (ngSubmit)="EditAuthor(registrationForm.value)">
-  
-        <div class="form container-md">
-        <div class="form-group">
-            <input type="hidden" class="form-control" formControlName="author_id" [(ngModel)]="author_id">
-            </div>
+  <h2>Edit Author</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="EditAuthor(registrationForm.value)">
+
+    <div class="form container-md">
+      <div class="form-group">
+        <input type="hidden" class="form-control" formControlName="author_id" [(ngModel)]="author_id">
+      </div>
 
       <div class="form-group">
         <label>First Name</label>
         <input type="text" class="form-control" formControlName="first_name" [(ngModel)]="first_name">
-        </div>
-  
+      </div>
+
       <div class="form-group">
         <label>Last Name</label>
         <input type="text" class="form-control" formControlName="last_name" [(ngModel)]="last_name">
       </div>
-  
-  <div style="text-align: center;">
-      <button class="btn btn-primary" type="submit">Edit Author</button>&nbsp;&nbsp;
+
+      <div style="text-align: center;">
+        <button class="btn btn-primary" type="submit">Edit Author</button>&nbsp;&nbsp;
+      </div>
     </div>
-    </div>
-    </form>
-  
-  </div>
-  
-  
-  <router-outlet></router-outlet>
+  </form>
+
+</div>
+
+
+<router-outlet></router-outlet>

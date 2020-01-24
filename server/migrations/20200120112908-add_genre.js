@@ -8,11 +8,11 @@ module.exports = {
     }]
 
     await queryInterface.bulkInsert('Genre', genreData)
-    
+
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Genre', {genre_name: "Drama"}, {})
-   
+    await queryInterface.bulkDelete('Genre', { genre_name: "Drama" }, {})
+
   }
 };

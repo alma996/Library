@@ -11,41 +11,39 @@ module.exports = {
         autoIncrement: true
       },
       member_id: {
-          type: Sequelize.INTEGER,
-          allowNull: false, 
-          references: {
-            model: 'Member',
-            key: 'member_id',
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-        
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Member',
+          key: 'member_id',
         },
-        book_id: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'Book',
-            key: 'book_id',
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-          allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+
+      },
+      book_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Book',
+          key: 'book_id',
         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
+      },
       loans_date: {
         type: Sequelize.DATEONLY,
         allowNull: false,
       },
       return_status: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        }
-
+        type: Sequelize.STRING,
+        allowNull: false,
+      }
     },
-
-    {
-      charset: 'utf8',
+      {
+        charset: 'utf8',
         collate: 'utf8_unicode_ci'
-    })
+      })
   },
 
   down: (queryInterface, Sequelize) => {

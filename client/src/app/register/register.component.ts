@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { AuthenticationService, TokenPayload } from "../authentication.service";
 import { Router } from "@angular/router";
+import { AuthenticationService, TokenPayload } from "../authentication.service";
 
 @Component({
   templateUrl: "./register.component.html"
@@ -14,7 +14,7 @@ export class RegisterComponent {
     password: ""
   };
 
-  constructor(private auth: AuthenticationService, private router: Router) {}
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   register() {
     this.auth.register(this.credentials).subscribe(

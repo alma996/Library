@@ -11,11 +11,11 @@ module.exports = {
     }]
 
     await queryInterface.bulkInsert('Loans', loansData)
-    
+
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Loans', {loans_date: "2020-01-20", return_status: "Returned"}, {})
-   
+    await queryInterface.bulkDelete('Loans', { loans_date: "2020-01-20", return_status: "Returned" }, {})
+
   }
 };

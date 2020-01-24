@@ -1,4 +1,4 @@
 export interface PublisherModel {
-    publisher_id: any;
-    publisher_name: string;
-  }
+  publisher_id: any;
+  publisher_name: string;
+}

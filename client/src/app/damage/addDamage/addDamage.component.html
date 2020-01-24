@@ -1,35 +1,36 @@
 <div class="container-md">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h2>Add new Damage</h2>
-    <form [formGroup]="registrationForm" (ngSubmit)="AddDamage(registrationForm.value)">
-  <div class="form container-md">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <h2>Add new Damage</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="AddDamage(registrationForm.value)">
+    <div class="form container-md">
       <div class="form-group">
         <label>Damage description</label>
         <input [class.is-invalid]="damage_description.invalid
-          && damage_description.touched" type="text" class="form-control" formControlName="damage_description" ngModel required>
-  
+          && damage_description.touched" type="text" class="form-control" formControlName="damage_description" ngModel
+          required>
+
         <div *ngIf="damage_description.invalid && damage_description.touched">
           <small *ngIf="damage_description.errors ?.required" class="text-danger">Damage description is required</small>
         </div>
       </div>
 
-  
-     
+
+
       <div style="text-align: center;">
-      <button class="btn btn-primary" type="submit">Post Damage</button>&nbsp;&nbsp;
-      <button class="btn btn-primary" (click)="BackToLoans()">Back to Loans</button>&nbsp;&nbsp;
+        <button class="btn btn-primary" type="submit">Post Damage</button>&nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="BackToLoans()">Back to Loans</button>&nbsp;&nbsp;
+      </div>
     </div>
-    </div>
-  
-  
-  
-  
-  
-    
-    </form>
-  
-   
-  </div>
-  
-  
-  <router-outlet></router-outlet>
+
+
+
+
+
+
+  </form>
+
+
+</div>
+
+
+<router-outlet></router-outlet>

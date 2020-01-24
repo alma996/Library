@@ -3,7 +3,7 @@ const db = require('../database/db.js')
 const bcrypt = require("bcryptjs")
 
 module.exports = db.sequelize.define(
-  'member',
+  'Member',
   {
     member_id: {
       type: Sequelize.INTEGER,
@@ -17,17 +17,17 @@ module.exports = db.sequelize.define(
       type: Sequelize.STRING
     },
     birth_date: {
-        type: Sequelize.DATE
-      },
-      address: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      phone_number: {
-        type: Sequelize.NUMBER
-      },
+      type: Sequelize.DATE
+    },
+    address: {
+      type: Sequelize.STRING
+    },
+    email: {
+      type: Sequelize.STRING
+    },
+    phone_number: {
+      type: Sequelize.STRING
+    },
   },
   {
 

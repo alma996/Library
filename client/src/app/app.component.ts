@@ -8,21 +8,21 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public auth: AuthenticationService, public toastr: ToastrService){}
+  constructor(public auth: AuthenticationService, public toastr: ToastrService) { }
 
-  showSuccess(){
+  showSuccess() {
     this.toastr.success('Hello world', 'Toastr fun!');
   }
 
-  errorSuccess(){
+  errorSuccess() {
     this.toastr.error('Hello world', 'Error');
   }
 
-  infoSuccess(){
+  infoSuccess() {
     this.toastr.info('Hello world', 'Info!');
   }
 
-  warningSuccess(){
+  warningSuccess() {
     this.toastr.warning('Hello world', 'Warning!');
   }
 }

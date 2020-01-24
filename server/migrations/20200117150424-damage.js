@@ -11,26 +11,24 @@ module.exports = {
         autoIncrement: true
       },
       loans_id: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'Loans',
-            key: 'loans_id',
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-          allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Loans',
+          key: 'loans_id',
         },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
+      },
       damage_description: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        }
-
+        type: Sequelize.STRING,
+        allowNull: false,
+      }
     },
-
-    {
-      charset: 'utf8',
+      {
+        charset: 'utf8',
         collate: 'utf8_unicode_ci'
-    })
+      })
   },
 
   down: (queryInterface, Sequelize) => {

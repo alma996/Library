@@ -8,11 +8,11 @@ module.exports = {
     }]
 
     await queryInterface.bulkInsert('Publisher', publisherData)
-    
+
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Publisher', {publisher_name: "Buybook"}, {})
-   
+    await queryInterface.bulkDelete('Publisher', { publisher_name: "Buybook" }, {})
+
   }
 };

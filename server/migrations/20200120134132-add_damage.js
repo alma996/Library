@@ -9,11 +9,11 @@ module.exports = {
     }]
 
     await queryInterface.bulkInsert('Damage', damageData)
-    
+
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Damage', {damage_description: "Damaged first page of the book"}, {})
-   
+    await queryInterface.bulkDelete('Damage', { damage_description: "Damaged first page of the book" }, {})
+
   }
 };

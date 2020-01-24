@@ -3,7 +3,7 @@ const db = require('../database/db.js')
 const bcrypt = require("bcryptjs")
 
 module.exports = db.sequelize.define(
-  'genre',
+  'Genre',
   {
     genre_id: {
       type: Sequelize.INTEGER,

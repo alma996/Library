@@ -14,15 +14,12 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       }
-
     },
-    {
-      charset: 'utf8',
+      {
+        charset: 'utf8',
         collate: 'utf8_unicode_ci'
-    })
-
+      })
   },
-
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Genre')
   }

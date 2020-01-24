@@ -6,7 +6,7 @@ const sequelize = new Sequelize('library', 'root', '', {
   dialect: 'mysql',
   operatorsAliases: false,
   charset: 'utf8',
-    collate: 'utf8_unicode_ci',
+  collate: 'utf8_unicode_ci',
 
   pool: {
     max: 5,
