@@ -36,7 +36,6 @@ export class GenreComponent implements OnInit {
 
 
   GetAllGenres() {
-    // User data which we have received from the registration form.
     this.GenreService.getAllGenres().subscribe((reponse) => {
       this.Genres = reponse;
     });

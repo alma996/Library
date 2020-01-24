@@ -29,7 +29,6 @@ export class AuthorComponent implements OnInit {
     this.AuthorService.getAllUsers().subscribe((reponse) => {
       console.log(reponse)
       this.Authors = reponse;
-      console.log("alma222", this.Authors)
     });
 
 
@@ -42,7 +41,6 @@ export class AuthorComponent implements OnInit {
     this.AuthorService.getAllUsers().subscribe((reponse) => {
       console.log(reponse)
       this.Authors = reponse;
-      console.log("alma222", this.Authors)
     });
 
   }
@@ -61,8 +59,6 @@ export class AuthorComponent implements OnInit {
   EditAuthor(selectedItem: any) {
     this.router.navigate(['/editAuthor/' + selectedItem.author_id]);
     console.log("Selected item id: ", selectedItem.author_id, selectedItem.first_name, selectedItem.last_name);
-    //this.Update= selectedItem.EmpID;
-    //return this.http.put("http://localhost:3000/employees/" + this.Update, this.Update).subscribe(response => console.log(response));
 
   }
 

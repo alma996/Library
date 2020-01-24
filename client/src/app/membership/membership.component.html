@@ -1,7 +1,7 @@
 <div class="container-md">
   <h1>Membership fees</h1>
-  <h3 class="text-transform" *ngFor="let membership of Memberships">{{membership.member.first_name}}
-    {{membership.member.last_name}}</h3>
+  <h3 class="text-transform" *ngFor="let membership of Memberships">{{membership.Member.first_name}}
+    {{membership.Member.last_name}}</h3>
   <div class="row">
 
     <div class="search conainer-md">
@@ -34,8 +34,8 @@
       <tbody>
         <tr class="text-transform"
           *ngFor="let membership of Memberships | filter: searchText | paginate: {itemsPerPage: 5, currentPage: p}">
-          <td>{{membership.member.first_name}}</td>
-          <td>{{membership.member.last_name}}</td>
+          <td>{{membership.Member.first_name}}</td>
+          <td>{{membership.Member.last_name}}</td>
           <td>{{membership.date_of_payment}}</td>
           <td>{{membership.year}}</td>
           <td>{{membership.amount}}</td>

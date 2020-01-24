@@ -34,11 +34,11 @@
         <tr class="text-transform"
           *ngFor="let damage of Damages | filter: searchText | paginate: {itemsPerPage: 5, currentPage: p}">
           <td>{{damage.damage_description}}</td>
-          <td>{{damage.loan.loans_date}}</td>
-          <td>{{damage.loan.return_status}}</td>
-          <td>{{damage.loan.member.first_name}}</td>
-          <td>{{damage.loan.member.last_name}}</td>
-          <td>{{damage.loan.book.book_name}}</td>
+          <td>{{damage.Loan.loans_date}}</td>
+          <td>{{damage.Loan.return_status}}</td>
+          <td>{{damage.Loan.Member.first_name}}</td>
+          <td>{{damage.Loan.Member.last_name}}</td>
+          <td>{{damage.Loan.Book.book_name}}</td>
 
           <div class="end">
             <button class="btn" (click)="DeleteDamage(damage)">

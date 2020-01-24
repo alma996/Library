@@ -88,8 +88,7 @@ export class EditLoansComponent {
       this.return_status = this.registrationForm.value.return_status,
       this.loans_date = this.registrationForm.value.loans_date,
       this.member_id = this.registrationForm.value.member_id,
-      this.book_id = this.registrationForm.value.book_id,
-      console.log(this.member_id)
+      this.book_id = this.registrationForm.value.book_id;
 
 
     if (this.loans_date !== '0000-00-00' && this.loans_date !== null && this.return_status !== null && this.registrationForm.value.return_status !== 0) {
